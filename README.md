@@ -6,7 +6,9 @@ Dynamically creates a bug (work item) in current or custom defined area & iterat
 
 The task requires access to OAuth token in order to get error details for a release and create a bug in VSTS.
 
-* Please enable "Allow scripts to access OAuth token" flag in in Agent Phase -> Additional options.
+* Please enable "Allow scripts to access OAuth token" flag in in Agent Phase -> Additional options (as shown below).
+
+![alt text](Screenshots/AllowOAuth.PNG)
 
 ## How to use
 
