@@ -13,7 +13,7 @@ The task requires access to OAuth token in order to get error details for a rele
 
 The task can be added at any step in the release pipeline.
 
-It can be added to the same phase(single phase pipeline) or another phase which executes the task only when any of the previous phases have failed in a release pipeline (multi-phase pipeline).The recommended approach for either case is covered in the following steps.
+It can be added to the same phase(single phase pipeline) or a different phase in a release pipeline (multi-phase pipeline).The recommended approach for either case is covered in the following steps.
 
 1. Add the task
 * Goto "Add Task to Agent phase" and add task from utility tab in the desired release pipeline.
