@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "CreateBugTask",
+    "name": "CreateBug",
+    "version": "1.0.5",
+    "publisher": "amanbedi",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Creates a bug in VSTS on build or release failure.",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+        "default": "images/Wit.png"        
+    },
+    "files": [
+        {
+            "path": "buildtask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "custom-build-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildtask"
+            }
+        }
+    ]
+}
