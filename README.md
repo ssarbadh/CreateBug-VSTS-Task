@@ -22,6 +22,18 @@ In a multi environment release definition the same strategy can be applied to al
 
 2. Configure the task
 
-3. Stand-alone step
+![alt text](Screenshots/Default Config.PNG)
 
-4. Multi-Phase configuration (recommended)
+
+![alt text](Screenshots/CustomConfig.PNG)
+
+
+3. Stand-alone step (recommended for single phase pipelines)
+
+![alt text](Screenshots/SinglePhase.PNG)
+
+
+4. Multi-Phase configuration (recommended for multi-phase pipelines)
+
+![alt text](Screenshots/MultiPhase.PNG)
+
