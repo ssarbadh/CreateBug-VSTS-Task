@@ -15,7 +15,8 @@ The task can be added at any step in the release pipeline but In order to make t
 In a multi environment release definition the same strategy can be applied to all release definitions so that the bug for each failure has consolidated report of error logs from all failed environments up-to that point.
 
 1. Add the task
-(Screenshots/AddTask.png "Description goes here")
+
+![alt text](Screenshots/AddTask.PNG)
 
 2. Configure the task
 
