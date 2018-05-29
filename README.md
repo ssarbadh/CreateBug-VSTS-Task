@@ -24,7 +24,7 @@ It can be added to the same phase(single phase pipeline) or a different phase in
 * The task can be used as is without any configuration provided.
 * The default behaviour will add the bug to default area and iteration path setting of the team project to which the release definition belongs to.
 
-![alt text](Screenshots/Default Config.PNG)
+![alt text](Screenshots/DefaultConfig.PNG)
 
 * In order to override the default area and iteration path select the "Custom Area & Iteration Paths" option.
 * This will enable required settings for "Area Path" & "Iteration Path". Provide the custom paths as shown in the screenshot, the bug will be created against the same.
