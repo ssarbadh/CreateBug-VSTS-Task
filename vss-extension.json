@@ -3,7 +3,7 @@
     "id": "CreateBugTask",
     "name": "CreateBug",
     "version": "1.0.6",
-    "publisher": "amanbedi",
+    "publisher": "AmanBedi18",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
