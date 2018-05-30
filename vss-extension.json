@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "CreateBugTask",
     "name": "Create Bug on Release failure",
-    "version": "1.0.9",
+    "version": "1.1.3",
     "publisher": "AmanBedi18",
     "targets": [
         {
@@ -21,6 +21,10 @@
         "license": {
             "path": "LICENSE"
         }
+    },
+    "branding": {
+        "color": "#821A27",
+        "theme": "light"
     },
     "tags": [
         "release", 
@@ -41,6 +45,9 @@
         },
         "issues": {
             "uri": "https://github.com/amanbedi18/CreateBug-VSTS-Task/issues"
+        },
+        "getstarted": {
+            "uri": "https://github.com/amanbedi18/CreateBug-VSTS-Task//blob/master/README.md"
         }
     },
     "categories": [
@@ -52,7 +59,8 @@
     "files": [
         {
             "path": "buildtask"
-        }
+        },
+        {"path": "images", "addressable": true}
     ],
     "contributions": [
         {
