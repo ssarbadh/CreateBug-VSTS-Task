@@ -1,15 +1,48 @@
 {
     "manifestVersion": 1,
     "id": "CreateBugTask",
-    "name": "CreateBug",
-    "version": "1.0.6",
+    "name": "Create Bug on Release failure",
+    "version": "1.0.8",
     "publisher": "AmanBedi18",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Creates a bug in VSTS on build or release failure.",
+    "description": "Creates a bug in VSTS on release failure.",
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/amanbedi18/CreateBug-VSTS-Task"
+    },
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+    "tags": [
+        "release", 
+        "bug",
+        "build",
+        "create bug",
+        "vsts",
+        "release failure", "alm",
+        "ci", "cd",
+        "ci cd", "continuous integration", "continuous deployment"
+    ],
+    "links": {
+        "home": {
+            "uri": "https://github.com/amanbedi18/repositories/"
+        },
+        "repository": {
+            "uri": "https://github.com/amanbedi18/CreateBug-VSTS-Task"
+        },
+        "issues": {
+            "uri": "https://github.com/amanbedi18/CreateBug-VSTS-Task/issues"
+        }
+    },
     "categories": [
         "Build and release"
     ],
