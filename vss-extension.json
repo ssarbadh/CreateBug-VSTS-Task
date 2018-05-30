@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "CreateBugTask",
     "name": "Create Bug on Release failure",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "publisher": "AmanBedi18",
     "targets": [
         {
