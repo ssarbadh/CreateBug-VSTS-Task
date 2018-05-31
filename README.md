@@ -72,3 +72,26 @@ Below are sample runs to showcase the task for both single phase and multi phase
 ![ScreenShot](images/BugReport.PNG)
 
 ### Multi Phase Release pipeline
+
+1. Below is a multi phase release pipeline having 2 phases:
+* Phase 1 has the same inline PowerShell script execution step which is rigged to blow the release assuming there can be other deployment steps too in the same phase.
+* Phase 2 has the "Create a bug on release failure"
+* Also the "Create a bug on release failure" step has the Area and Iteration Paths set to custom values as highlighted in the screenshot below.
+
+![ScreenShot](images/MultiCustom.PNG)
+
+* Also the phase 2 has "Run This Phase" setting set to "Only when a previous phase has failed". To ensure that the bug is only created when the previous phase fails.
+
+![ScreenShot](images/MultiPhase.PNG)
+
+2. On executing a release, like before the Release fails on the "PowerShell Script" in the first phase step as a result the second phase starts execution as configured by its "Run This Phase" setting. This results in "Create a bug on release failure" task to be executed.
+
+* The task will now use the custom area and iteration path for the Team Project against which the release was made. 
+* It scans through the release, gets all failed environments upto this point, gets all failed phases & tasks in each failed phase and errors for each such task to consolidate the same into an error report.
+* The same is written to the host in the logs window
+
+![ScreenShot](images/MultiPhaseRelease.PNG)
+
+3. Finally the bug is created with environment and build details in the title, consolidated error report, severit & priority, under custom area and iteration path, assigned to the person who triggered the release.
+
+![ScreenShot](images/MultiPhaseBug.PNG)
