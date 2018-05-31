@@ -13,7 +13,7 @@ The task requires access to OAuth token in order to get error details for a rele
 
 The task can be added at any step in the release pipeline.
 
-It can be added to the same phase(single phase pipeline) or a different phase in a release pipeline (multi-phase pipeline).The recommended approach for either case is covered in the following steps.
+It can be added to the same phase(single phase pipeline) or a different phase (multi-phase pipeline). The recommended approach for either case is covered in the following steps.
 
 1. Add the task
 * Goto "Add Task to Agent phase" and add task from utility tab in the desired release pipeline.
@@ -31,16 +31,44 @@ It can be added to the same phase(single phase pipeline) or a different phase in
 
 ![ScreenShot](images/CustomConfig.PNG)
 
-3. Stand-alone step (recommended for single phase pipelines)
+3. Stand-alone step (single phase pipelines)
 * In a single phase release pipeline add the task after all the deployment tasks.
-* Ensure that "Run this task" setting for the task is set to "Only when a previous task has failed". This enables task will be able to get error logs from all the tasks in  the release pipeline which have failed in the current environment.
-* The same strategy can be applied to all release pipelines of different environments in the release definition so that the bug for each environment failure has consolidated report of error logs from all failed environments up-to that point.
+* Ensure that "Run this task" setting for the task is set to "Only when a previous task has failed". This enables the task able to get error logs from all the tasks in the release pipeline which have failed in the current environment.
+* The same strategy can be applied to all release pipelines of different environments in the release definition so that the error's from failed steps in each environment's release pipeline can be consolidated in final error report for the bug.
 
 ![ScreenShot](images/SinglePhase.PNG)
 
-4. Multi-Phase configuration (recommended for multi-phase pipelines)
+4. Multi-Phase configuration (multi-phase pipelines)
 * In a multi-phase pipeline where the release pipeline has various deployment phases, add another phase after the deployment phases to run the task.
 * Also ensure that the "Run This Phase" setting for the phase (containing the task) is set to "Only when a previous phase has failed". This enables the task will be able to get error details for all the deployment phases in the failed environments.
-* The same strategy can be applied to all release pipelines of different environments in the release definition so that the bug for each environment failure has consolidated report of error logs from all failed environments up-to that point.
+* The same strategy can be applied to all release pipelines of different environments in the release definition so that the error's from failed steps in each environment's release pipeline can be consolidated in final error report for the bug.
 
 ![ScreenShot](images/MultiPhase.PNG)
+
+## Sample Runs
+
+Below are sample runs to showcase the task for both single phase and multi phase pipelines. For demo purpose there is only one environment in the release definition but in actual practice, the task will consolidate error logs for all environments that have been executed before the task's execution and have failed phases due to errors in tasks.
+
+### Single Phase Release pipeline
+
+1. Below is a single phase release pipeline having 2 steps:
+* An inline PowerShell script execution step which is rigged to blow the release:
+
+![ScreenShot](images/Psstep.PNG)
+
+* The "Create a bug on release failure" step as the last step in the release pipeline with "Run this task" set to "Only when a previous task has failed"
+
+![ScreenShot](images/Pipeline.PNG)
+
+2. On executing a release, the Release fails on the "PowerShell Script" step as a result the "Create a bug on release failure" task executes as configured by "Run this task" property. 
+* The task gets the default area and iteration path for the Team Project against which the release was made. 
+* It scans through the release, gets all failed environments upto this point, gets all failed phases & tasks in each failed phase and errors for each such task to consolidate the same into an error report.
+* The same is written to the host in the logs window
+
+![ScreenShot](images/Release.PNG)
+
+3. Finally the bug is created with environment and build details in the title, consolidated error report, severit & priority, under default area and iteration path, assigned to the person who triggered the release.
+
+![ScreenShot](images/BugReport.PNG)
+
+### Multi Phase Release pipeline
