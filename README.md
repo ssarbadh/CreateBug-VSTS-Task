@@ -1,6 +1,7 @@
 # CreateBug-VSTS-Task
 
-Dynamically creates a bug (work item) in current or custom defined area & iteration path for the team project in VSTS on release failure with details like repro steps, errors, description, title, priority, severity & assigns it to the person who triggered the release.
+VSTS provides "Create work item on build failure" functionality for the Build but not Release.
+This extension emulates the same for Release by dynamically creating a bug (work item) in current or custom defined area & iteration path for the team project in VSTS on release failure with details like repro steps, errors, description, title, priority, severity & assigns it to the person who triggered the release.
 
 ## Requirements
 
