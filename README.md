@@ -56,7 +56,7 @@ Below are sample runs to showcase the task for both single phase and multi phase
 
 ![ScreenShot](images/Psstep.PNG)
 
-* The "Create a bug on release failure" step as the last step in the release pipeline with "Run this task" set to "Only when a previous task has failed"
+* The "Create a bug on release failure" step as the last step in the release pipeline with "Run this task" set to "Only when a previous task has failed" to ensure that the bug is only created when any of the previous task fails.
 
 ![ScreenShot](images/Pipeline.PNG)
 
