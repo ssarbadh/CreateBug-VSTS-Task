@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "CreateBugTask",
     "name": "Create Bug on Release failure",
-    "version": "1.1.10",
+    "version": "1.2.1",
     "publisher": "AmanBedi18",
     "targets": [
         {
@@ -26,6 +26,7 @@
         "color": "#511018",
         "theme": "dark"
     },
+    "public": true,
     "tags": [
         "release", 
         "bug",
