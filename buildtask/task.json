@@ -2,7 +2,7 @@
     "id": "9faa6a4c-9c25-45b6-b4cd-97e5e95977c6",
     "name": "CreateBug",
     "friendlyName": "Create Bug on Release failure",
-    "description": "Create a bug with error repost in VSTS when a release is failed & assigns it to the person who triggered the release.",
+    "description": "Creates a bug with error report in VSTS when a release is failed & assigns it to the person who triggered the release.",
     "helpMarkDown": "Please visit https://github.com/amanbedi18/CreateBug-VSTS-Task to configure the task in your release pipelines.",
     "category": "Utility",
     "visibility": [
@@ -14,7 +14,7 @@
     "version": {
         "Major": 1,
         "Minor": 1,
-        "Patch": 8
+        "Patch": 9
     },
     "instanceNameFormat": "Create a bug on release failure.",
     "groups": [
