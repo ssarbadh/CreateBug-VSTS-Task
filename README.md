@@ -96,3 +96,6 @@ Below are sample runs to showcase the task for both single phase and multi phase
 3. Finally the bug is created with environment and build details in the title, consolidated error report, severit & priority, under custom area and iteration path, assigned to the person who triggered the release.
 
 ![ScreenShot](images/MultiPhaseBug.PNG)
+
+TIP: Ensure that "A work item assigned notification" state is enabled (as shown below) so that the person to whom the bug is assigned can receive an email for the same.
+
