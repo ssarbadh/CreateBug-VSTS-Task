@@ -53,6 +53,7 @@ $Requestor = $env:RELEASE_REQUESTEDFOR
 $EnvironmentName = $env:RELEASE_ENVIRONMENTNAME
 [int] $ReleaseId = ( $env:RELEASE_RELEASEID -as [int])
 [string]$ReleaseDefinition = $env:RELEASE_DEFINITIONNAME
+[string]$FoundInRelease = $env:FOUNDINRELEASE
 $vstsAccount = $env:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI
 $vstsUri = $env:SYSTEM_TEAMFOUNDATIONSERVERURI
 $teamProject = $env:SYSTEM_TEAMPROJECTID
@@ -166,7 +167,7 @@ Write-Host "Consolidated error report:"
 Write-Host $script:errorText
 
 $RestParams = @{
-	Uri		       = "$vstsAccount$teamProject/_apis/wit/workitems/`$Bug?api-version=2.2"
+	Uri		       = "$vstsAccount$teamProject/_apis/wit/workitems/`$Bug?api-version=5.0"
 	ContentType    = 'application/json-patch+json'
 	Headers	       = @{
 		Authorization    = ("Basic {0}" -f $authentication)
@@ -195,17 +196,32 @@ $RestParams = @{
 		}
 		@{
 			op	     = "add"
-			path	 = "/fields/Microsoft.VSTS.Common.Priority"
-			value    = 2
+			path	 = "/fields/Aurigo.Masterworks.Common.BugPriority"
+			value    = "Critical"
 		}
 		@{
 			op	     = "add"
-			path	 = "/fields/Microsoft.VSTS.Common.Severity"
-			value    = "2 - High"
+			path	 = "/fields/Aurigo.Masterworks.Common.Severity"
+			value    = "3 - Medium"
 		}
 		@{
 			op	     = "add"
-			path	 = "/fields/Microsoft.VSTS.TCM.ReproSteps"
+			path	 = "/fields/Aurigo.Masterworks.Common.BugSource"
+			value    = "Automation"
+		}
+		@{
+			op	     = "add"
+			path	 = "/fields/Aurigo.Masterworks.Common.TargetRelease"
+			value    = "NOT_PLANNED"
+		}
+		@{
+			op	     = "add"
+			path	 = "/fields/Aurigo.Masterworks.Common.FoundInRelease"
+			value    = "$FoundInRelease"
+		}
+		@{
+			op	     = "add"
+			path	 = "/fields/Aurigo.Masterworks.TCM.ReproSteps"
 			value    = $script:errorText
 		}
 	) | ConvertTo-Json
@@ -215,7 +231,7 @@ Write-Host "Creating a bug with the generated error report under the configured 
 
 try
 {
-	Invoke-RestMethod @RestParams -Verbose
+	$workitem = Invoke-RestMethod @RestParams -Verbose
 }
 catch
 {
@@ -223,6 +239,7 @@ catch
 }
 
 } finally {
+    Write-Host "API response to the bug creation $workitem"
     Trace-VstsLeavingInvocation $MyInvocation
 }
 #endregion
